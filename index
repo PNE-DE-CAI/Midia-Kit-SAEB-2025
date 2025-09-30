@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mídia Kit SAEB 2025 - URE-Caieiras</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-ure: #1E3A8A;
+            --vermelho-ure: #DC2626;
+            --azul-claro: #3B82F6;
+            --vermelho-claro: #EF4444;
+            --cinza-claro: #F3F4F6;
+            --cinza-escuro: #374151;
+            --dourado: #EAB308;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--azul-ure), var(--vermelho-ure));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><text x="50" y="50" font-size="12" text-anchor="middle" fill="white">SAEB</text></svg>');
+            opacity: 0.1;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            height: 80px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .school-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--azul-ure);
+        }
+        
+        h2 {
+            color: var(--azul-ure);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--vermelho-ure);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h2 i {
+            color: var(--vermelho-ure);
+        }
+        
+        h3 {
+            color: var(--vermelho-ure);
+            margin: 1.5rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h3 i {
+            color: var(--azul-ure);
+        }
+        
+        .hashtags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .hashtag {
+            background: var(--azul-claro);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .hashtag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hashtag.vermelho {
+            background: var(--vermelho-claro);
+        }
+        
+        .hashtag.dourado {
+            background: var(--dourado);
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--azul-ure);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 60px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--vermelho-ure);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--azul-ure);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--azul-ure);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .post-example {
+            background: var(--cinza-claro);
+            border-left: 4px solid var(--azul-ure);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+            transition: all 0.3s;
+        }
+        
+        .post-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--azul-ure);
+            transition: all 0.3s;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-card.instagram {
+            border-top-color: #E1306C;
+        }
+        
+        .social-card.tiktok {
+            border-top-color: #000000;
+        }
+        
+        .social-card-header {
+            padding: 1rem;
+            background: var(--cinza-claro);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .social-card-body {
+            padding: 1rem;
+        }
+        
+        .color-palette {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .color-box {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .color-box:hover {
+            transform: scale(1.05);
+        }
+        
+        .azul-ure {
+            background: var(--azul-ure);
+        }
+        
+        .vermelho-ure {
+            background: var(--vermelho-ure);
+        }
+        
+        .azul-claro {
+            background: var(--azul-claro);
+        }
+        
+        .vermelho-claro {
+            background: var(--vermelho-claro);
+        }
+        
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--azul-ure);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-download:hover {
+            background: var(--azul-claro);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .campaign-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--vermelho-ure);
+            transition: all 0.3s;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .highlight-icon {
+            font-size: 2.5rem;
+            color: var(--azul-ure);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background: var(--cinza-escuro);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo {
+            height: 50px;
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .social-media-grid, .campaign-highlights {
+                grid-template-columns: 1fr;
+            }
+            
+            .color-palette {
+                justify-content: center;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .school-name {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://i.ibb.co/dscRg9Ms/LOGO-URE-CAIEIRAS-2-1.png" alt="LOGO-URE-CAIEIRAS" class="logo">
+                   
+        </div>
+        <h1>Mídia Kit SAEB 2025</h1>
+        <p class="subtitle">Estratégia de Engajamento para o Dia D - Transformando a percepção do SAEB em um desafio coletivo e momento de brilhar!</p>
+    </header>
+    
+    <div class="container">
+        <section id="objetivo">
+            <h2><i class="fas fa-bullseye"></i> Objetivo da Campanha</h2>
+            <p>Transformar a percepção do SAEB de uma "de mais uma prova" para um "desafio coletivo e um momento de brilhar", aumentando o engajamento, a confiança e a participação dos alunos da URE-Caieiras.</p>
+            
+            <div class="hashtags">
+                <div class="hashtag">#FocaNoSAEB</div>
+                <div class="hashtag vermelho">#SAEBNossoDiaD</div>
+                <div class="hashtag dourado">#URECaieiras2025</div>
+                <div class="hashtag">#DesbravadoresDoSAEB</div>
+            </div>
+            
+            <div class="campaign-highlights">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Engajamento Coletivo</h3>
+                    <p>Envolver toda a comunidade escolar em um objetivo comum</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Melhoria de Resultados</h3>
+                    <p>Elevar o desempenho através da motivação e preparação</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h3>Presença Digital</h3>
+                    <p>Fortalecer a marca da escola nas redes sociais</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="identidade-visual">
+            <h2><i class="fas fa-palette"></i> Identidade Visual</h2>
+            <p>A campanha utilizará as cores oficiais da URE-Caieiras 2025, criando uma identidade forte e reconhecível em todas as peças de comunicação.</p>
+            
+            <div class="color-palette">
+                <div class="color-box azul-ure">
+                    <span>Azul URE</span>
+                    <span>#1E3A8A</span>
+                </div>
+                <div class="color-box vermelho-ure">
+                    <span>Vermelho URE</span>
+                    <span>#DC2626</span>
+                </div>
+                <div class="color-box azul-claro">
+                    <span>Azul Claro</span>
+                    <span>#3B82F6</span>
+                </div>
+                <div class="color-box vermelho-claro">
+                    <span>Vermelho Claro</span>
+                    <span>#EF4444</span>
+                </div>
+            </div>
+            
+            <h3><i class="fas fa-comment-dots"></i> Tom de Voz</h3>
+            <ul>
+                <li><strong>Motivador:</strong> Como um técnico antes do jogo decisivo</li>
+                <li><strong>Descontraído:</strong> Usando gírias e referências que a galera entende</li>
+                <li><strong>Orgulhoso:</strong> Enaltecendo a escola e o potencial de cada aluno</li>
+                <li><strong>Claro:</strong> Explicando de forma simples a importância da prova</li>
+            </ul>
+        </section>
+        
+        <section id="cronograma">
+            <h2><i class="fas fa-calendar-alt"></i> Cronograma de Postagens</h2>
+            <p>Estratégia de 1 semana antes do Dia D do SAEB:</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date"><i class="fas fa-bell"></i> Fase 1: 4-3 dias antes - Alerta e Conscientização</div>
+                    <h3><i class="fab fa-instagram"></i> Post 1 - Instagram Feed/Stories</h3>
+                    <div class="post-example">
+                        <p><strong>Imagem:</strong> Card moderno com fundo dinâmico nas cores azul e vermelho</p>
+                        <p><strong>Texto:</strong> "FALA, GALERA! 👀 O SAEB está chegando! 📅 [Data da Prova] É a nossa chance de mostrar todo nosso conhecimento! 💡"</p>
+                    </div>
+                    
+                    <h3><i class="fab fa-tiktok"></i> Post 2 - Reels/TikTok</h3>
+                    <div class="post-example">
+                        <p><strong>Conceito:</strong> "Tudo o que você precisa saber sobre o SAEB em 30 segundos"</p>
+                        <p><strong>Roteiro:</strong> Cenas rápidas explicando o que é o SAEB e sua importância</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date"><i class="fas fa-lightbulb"></i> Fase 2: 2-1 dias antes - Motivação e Dicas</div>
+                    <h3><i class="fab fa-instagram"></i> Post 3 - Instagram Feed (Carrossel)</h3>
+                    <div class="post-example">
+                        <p><strong>Título:</strong> "CHECKLIST DO DESBRAVADOR DO SAEB ✅"</p>
+                        <p><strong>Conteúdo:</strong> 5 slides com dicas práticas para o dia da prova</p>
+                    </div>
+                    
+                    <h3><i class="fas fa-poll"></i> Post 4 - Stories (Quiz/Enquete)</h3>
+                    <div class="post-example">
+                        <p><strong>Enquete:</strong> "Como você está se sentindo para o SAEB?"</p>
+                        <p><strong>Quiz:</strong> "Na prova, é importante:" com opções educativas</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date"><i class="fas fa-star"></i> Fase 3: Dia D - Pico de Motivação</div>
+                    <h3><i class="fas fa-broadcast-tower"></i> Post 5 - Stories ao Vivo/Posts em Tempo Real</h3>
+                    <div class="post-example">
+                        <p><strong>Conteúdo:</strong> Mostrar a escola se preparando, professores dando bom dia</p>
+                        <p><strong>Legenda:</strong> "HOJE É O DIA! O #SAEBNossoDiaD chegou!"</p>
+                    </div>
+                    
+                    <h3><i class="fas fa-camera"></i> Post 6 - Feed (Foto Montagem)</h3>
+                    <div class="post-example">
+                        <p><strong>Imagem:</strong> Colagem de fotos de alunos e professores</p>
+                        <p><strong>Texto:</strong> "FECHAMOS COM CHAVE DE OURO! ✨"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="materiais">
+            <h2><i class="fas fa-file-alt"></i> Materiais para Redes Sociais</h2>
+            
+            <div class="social-media-grid">
+                <div class="social-card instagram">
+                    <div class="social-card-header">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </div>
+                    <div class="social-card-body">
+                        <h3><i class="fas fa-photo-video"></i> Stories (Gifs e Frases)</h3>
+                        <ul>
+                            <li>"Hoje é dia de brilhar! ✨"</li>
+                            <li>"Respira e confia! Você estudou o ano todo para isso!"</li>
+                            <li>"Nosso time é forte! 💪"</li>
+                        </ul>
+                        
+                        <h3><i class="fas fa-chalkboard-teacher"></i> Para envolver professores</h3>
+                        <p>Vídeos curtos (15s) dos professores motivando os alunos</p>
+                    </div>
+                </div>
+                
+                <div class="social-card tiktok">
+                    <div class="social-card-header">
+                        <i class="fab fa-tiktok"></i> TikTok
+                    </div>
+                    <div class="social-card-body">
+                        <h3><i class="fas fa-video"></i> Conteúdo em Vídeo</h3>
+                        <ul>
+                            <li>Tendências com a hashtag #FocaNoSAEB</li>
+                            <li>Desafios educativos sobre a prova</li>
+                            <li>Depoimentos de alunos e professores</li>
+                        </ul>
+                        
+                        <h3><i class="fas fa-film"></i> Formato</h3>
+                        <p>Vídeos curtos, dinâmicos e com trilha sonora atual</p>
+                    </div>
+                </div>
+                
+                <div class="social-card">
+                    <div class="social-card-header">
+                        <i class="fas fa-download"></i> Materiais de Apoio
+                    </div>
+                    <div class="social-card-body">
+                        <h3><i class="fas fa-cloud-download-alt"></i> Recursos para Download</h3>
+                        <ul>
+                            <li>Modelos de posts para Instagram</li>
+                            <li>Arte para Stories</li>
+                            <li>Scripts para vídeos</li>
+                            <li>Checklist de preparação</li>
+                        </ul>
+                        
+                        <a href="#" class="btn-download"><i class="fas fa-download"></i> Baixar Kit Completo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="pos-prova">
+            <h2><i class="fas fa-trophy"></i> Ação Pós-Prova</h2>
+            <p>Reconhecer o esforço e manter o engajamento após o SAEB:</p>
+            
+            <div class="post-example">
+                <h3><i class="fas fa-check-circle"></i> Post de Agradecimento</h3>
+                <p><strong>Texto:</strong> "MISSÃO CUMPRIDA! Agradecemos a cada guerreiro que participou do SAEB. O importante foi a dedicação de vocês! Agora é aguardar os frutos do nosso trabalho! Parabéns! 🎉"</p>
+            </div>
+            
+            <h3><i class="fas fa-magic"></i> Dica Extra</h3>
+            <p>Criar um filtro/no AR no Instagram ou Facebook para a campanha, com o mascote "Desbravador do SAEB" ou a hashtag #FocaNoSAEB.</p>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-logos">
+            <img src="https://i.ibb.co/dscRg9Ms/LOGO-URE-CAIEIRAS-2-1.png" alt="LOGO-URE-CAIEIRAS" class="footer-logo">
+            <img src="https://i.ibb.co/1YH8PpM0/Imagem345454.jpg" alt="Imagem345454" class="footer-logo">
+            <img src="https://i.ibb.co/N2nz2dFP/Imagem22525.jpg" alt="Logo URE Caieiras" class="footer-logo">
+        </div>
+        <p>URE-Caieiras 2025 - Mídia Kit SAEB</p>
+        <p>Estratégia de Engajamento para Redes Sociais</p>
+    </footer>
+</body>
+</html>
